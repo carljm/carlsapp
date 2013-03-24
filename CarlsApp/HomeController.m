@@ -6,9 +6,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    SEL mySelector = @selector(didTapNextButton:);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next"
-                                                                              style:UIBarButtonItemStyleBordered target:self action:mySelector];
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(didTapNextButton:)];
     self.title = @"Home";
 }
 
@@ -24,8 +25,9 @@
 
 - (IBAction)didTapNextButton:(id)sender
 {
-    UIViewController *secondController = [[UIViewController alloc] init];
-    [self.navigationController pushViewController:secondController animated:YES];
+    UIViewController *aboutController = [[UIViewController alloc] init];
+    aboutController.title = @"About";
+    [self.navigationController pushViewController:aboutController animated:YES];
 }
 
 @end

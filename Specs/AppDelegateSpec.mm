@@ -11,10 +11,10 @@ describe(@"AppDelegate", ^{
     __block AppDelegate *appDelegate;
 
     beforeEach(^{
-        appDelegate = [[AppDelegate alloc] init];
+        appDelegate = [[[AppDelegate alloc] init] autorelease];
     });
 
-    context(@"when the application did finish launching", ^{
+    describe(@"application:didFinishLaunchingWithOptions:", ^{
         __block BOOL launchedSuccessfully;
 
         beforeEach(^{
