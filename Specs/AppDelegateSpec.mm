@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import "HomeController.h"
+#import "APIClient.h"
 
 
 using namespace Cedar::Matchers;
@@ -55,6 +56,11 @@ describe(@"AppDelegate", ^{
 
             it(@"should show a home controller by default", ^{
                 navController.topViewController should be_instance_of([HomeController class]);
+            });
+
+            it(@"should have an apiclient", ^{
+                HomeController *homeController = (HomeController *)navController.topViewController;
+                homeController.apiClient should be_instance_of([APIClient class]);
             });
         });
     });

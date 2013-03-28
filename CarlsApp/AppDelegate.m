@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import "HomeController.h"
+#import "APIClient.h"
 
 
 @implementation AppDelegate
@@ -9,7 +10,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)options
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[HomeController alloc] init]];
+
+    APIClient *apiClient = [[APIClient alloc] init];
+
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[HomeController alloc] initWithAPIClient:apiClient]];
     [self.window makeKeyAndVisible];
     return YES;
 }

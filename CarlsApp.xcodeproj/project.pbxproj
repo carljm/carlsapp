@@ -32,6 +32,9 @@
 		B827294416FE1B3300C9E8C5 /* SpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B827294316FE1B3300C9E8C5 /* SpecHelper.m */; };
 		B8441DB116FECF3E0058A36F /* HomeControllerSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = B8441DB016FECF3E0058A36F /* HomeControllerSpec.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B8441DB216FED92A0058A36F /* HomeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B822F49A16FD84140039B14B /* HomeController.xib */; };
+		B8441DB516FEDEA70058A36F /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8441DB416FEDEA70058A36F /* APIClient.m */; };
+		B8441DB616FEDEA70058A36F /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8441DB416FEDEA70058A36F /* APIClient.m */; };
+		B8441DB916FEDF170058A36F /* FakeAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B8441DB816FEDF170058A36F /* FakeAPIClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,10 @@
 		B827294216FE1B3300C9E8C5 /* SpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecHelper.h; sourceTree = "<group>"; };
 		B827294316FE1B3300C9E8C5 /* SpecHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecHelper.m; sourceTree = "<group>"; };
 		B8441DB016FECF3E0058A36F /* HomeControllerSpec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HomeControllerSpec.mm; sourceTree = "<group>"; };
+		B8441DB316FEDEA70058A36F /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		B8441DB416FEDEA70058A36F /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		B8441DB716FEDF170058A36F /* FakeAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeAPIClient.h; sourceTree = "<group>"; };
+		B8441DB816FEDF170058A36F /* FakeAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeAPIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +138,8 @@
 				B822F49916FD84140039B14B /* HomeController.m */,
 				B822F49A16FD84140039B14B /* HomeController.xib */,
 				B822F48116FD7B200039B14B /* Supporting Files */,
+				B8441DB316FEDEA70058A36F /* APIClient.h */,
+				B8441DB416FEDEA70058A36F /* APIClient.m */,
 			);
 			path = CarlsApp;
 			sourceTree = "<group>";
@@ -158,6 +167,8 @@
 				B827294216FE1B3300C9E8C5 /* SpecHelper.h */,
 				B827294316FE1B3300C9E8C5 /* SpecHelper.m */,
 				B8441DB016FECF3E0058A36F /* HomeControllerSpec.mm */,
+				B8441DB716FEDF170058A36F /* FakeAPIClient.h */,
+				B8441DB816FEDF170058A36F /* FakeAPIClient.m */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -286,6 +297,7 @@
 				B822F48716FD7B200039B14B /* main.m in Sources */,
 				B822F48B16FD7B200039B14B /* AppDelegate.m in Sources */,
 				B822F49B16FD84140039B14B /* HomeController.m in Sources */,
+				B8441DB516FEDEA70058A36F /* APIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +311,8 @@
 				B827293B16FE163300C9E8C5 /* AppDelegateSpec.mm in Sources */,
 				B827294416FE1B3300C9E8C5 /* SpecHelper.m in Sources */,
 				B8441DB116FECF3E0058A36F /* HomeControllerSpec.mm in Sources */,
+				B8441DB616FEDEA70058A36F /* APIClient.m in Sources */,
+				B8441DB916FEDF170058A36F /* FakeAPIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

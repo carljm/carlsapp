@@ -1,4 +1,6 @@
 #import "HomeController.h"
+#import "FakeAPIClient.h"
+
 
 using namespace Cedar::Matchers;
 using namespace Cedar::Doubles;
@@ -8,20 +10,18 @@ SPEC_BEGIN(HomeControllerSpec)
 describe(@"HomeController", ^{
     __block HomeController *controller;
     __block UINavigationController *navController;
+    __block FakeAPIClient *apiClient;
 
     beforeEach(^{
-        controller = [[[HomeController alloc] init] autorelease];
+        apiClient = [[FakeAPIClient alloc] init];
+        controller = [[[HomeController alloc] initWithAPIClient:apiClient] autorelease];
         navController = [[[UINavigationController alloc] initWithRootViewController:controller] autorelease];
         controller.view should_not be_nil;
     });
 
-
-    describe(@"the home view", ^{
-        it(@"should have a title", ^{
-            controller.title should equal(@"Home");
-        });
+    it(@"should have a title", ^{
+        controller.title should equal(@"Home");
     });
-
 
     describe(@"tapping the about button", ^{
         __block UIViewController *aboutController;
@@ -37,7 +37,6 @@ describe(@"HomeController", ^{
     });
 
     describe(@"making the app talk", ^{
-
         context(@"when there is text in the name field", ^{
             beforeEach(^{
                 controller.nameTextField.text = @"Carl";
@@ -70,6 +69,32 @@ describe(@"HomeController", ^{
                         [alert buttonTitleAtIndex:alert.cancelButtonIndex] should equal(@"Ok");
                     });
                 });
+            });
+        });
+    });
+
+    describe(@"showing repo info from github", ^{
+        beforeEach(^{
+            [controller.showRepositoriesButton tap];
+        });
+
+        it(@"requests the correct url", ^{
+            apiClient.lastURL should equal(@"https://api.github.com/users/carljm/repos/");
+        });
+
+        context(@"when the request is successful", ^{
+            __block UIAlertView *alert;
+
+            beforeEach(^{
+                NSDictionary *repoDocument = @{@"full_name": @"carljm/django"};
+                apiClient.lastSuccessBlock(@[repoDocument]);
+                alert = [UIAlertView currentAlertView];
+                alert should_not be_nil;
+            });
+
+            it(@"should show an alert with the list of repos", ^{
+                alert.title should equal(@"Your repos:");
+                alert.message should contain(@"carljm/django");
             });
         });
     });
